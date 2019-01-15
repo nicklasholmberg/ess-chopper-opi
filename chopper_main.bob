@@ -45,4 +45,19 @@
       </font>
     </font>
   </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="open_display">
+        <file>Chopper1.bob</file>
+        <target>replace</target>
+        <description>Open Display</description>
+      </action>
+    </actions>
+    <text>$(actions) Chopper1</text>
+    <x>120</x>
+    <y>190</y>
+    <height>70</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
 </display>
