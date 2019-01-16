@@ -49,7 +49,7 @@
     <name>Action Button</name>
     <actions>
       <action type="open_display">
-        <file>Chopper1.bob</file>
+        <file>chopper1.bob</file>
         <target>replace</target>
         <description>Open Display</description>
       </action>

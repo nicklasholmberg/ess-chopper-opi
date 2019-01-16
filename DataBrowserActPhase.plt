@@ -37,10 +37,10 @@
                 <green>0</green>
                 <blue>0</blue>
             </color>
-            <min>-1.0</min>
-            <max>15.0</max>
+            <min>13.953190000000001</min>
+            <max>14.05461</max>
             <grid>false</grid>
-            <autoscale>false</autoscale>
+            <autoscale>true</autoscale>
             <log_scale>false</log_scale>
         </axis>
     </axes>
@@ -48,7 +48,7 @@
     </annotations>
     <pvlist>
         <pv>
-            <display_name>LabS-VIP:Chop-Drv-01:Spd</display_name>
+            <display_name>LabS-Utgard-VIP:Chop-Drv-0201:Beam-Pos-Delay</display_name>
             <visible>true</visible>
             <name>LabS-VIP:Chop-Drv-01:Spd</name>
             <axis>0</axis>

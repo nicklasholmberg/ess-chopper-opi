@@ -25,20 +25,9 @@
   <widget type="textupdate" version="2.0.0">
     <name>Text Update</name>
     <pv_name>LabS-VIP:Chop-Drv-01:Spd</pv_name>
-    <x>153</x>
+    <x>180</x>
     <y>50</y>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label_2</name>
-    <class>COMMENT</class>
-    <text>Hz</text>
-    <x>273</x>
-    <y>50</y>
-    <width>140</width>
-    <font>
-      <font name="Comment" family="Source Sans Pro" style="ITALIC" size="16.0">
-      </font>
-    </font>
+    <precision>1</precision>
   </widget>
   <widget type="databrowser" version="2.0.0">
     <name>Data Browser</name>
@@ -47,30 +36,6 @@
     <y>130</y>
     <width>330</width>
     <height>180</height>
-  </widget>
-  <widget type="xyplot" version="2.0.0">
-    <name>X/Y Plot</name>
-    <x>40</x>
-    <y>380</y>
-    <width>260</width>
-    <height>200</height>
-    <traces>
-      <trace>
-        <name>$(traces[0].y_pv)</name>
-        <x_pv></x_pv>
-        <y_pv>LabS-VIP:Chop-Drv-01:Spd</y_pv>
-        <err_pv></err_pv>
-        <axis>0</axis>
-        <trace_type>1</trace_type>
-        <color>
-          <color red="0" green="0" blue="255">
-          </color>
-        </color>
-        <line_width>1</line_width>
-        <point_type>0</point_type>
-        <point_size>10</point_size>
-      </trace>
-    </traces>
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_1</name>
@@ -113,19 +78,79 @@
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Entry</name>
-    <x>153</x>
+    <pv_name>LabS-VIP:Chop-Drv-01:Spd_SP</pv_name>
+    <x>180</x>
     <y>80</y>
+    <precision>2</precision>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label_4</name>
     <text>Actual speed</text>
     <x>40</x>
     <y>50</y>
+    <width>120</width>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label_1</name>
     <text>Speed setpoint</text>
     <x>40</x>
     <y>80</y>
+    <width>120</width>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>LabS-VIP:Chop-Drv-01:Start_Cmd</pv_name>
+        <value>1</value>
+        <description>Start</description>
+      </action>
+    </actions>
+    <x>549</x>
+    <y>110</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>LabS-VIP:Chop-Drv-01:Stop_Cmd</pv_name>
+        <value>1</value>
+        <description>Stop</description>
+      </action>
+    </actions>
+    <x>549</x>
+    <y>160</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_1</name>
+    <x>709</x>
+    <y>160</y>
+    <rules>
+      <rule name="Evaluate_Speed" prop_id="off_color" out_exp="false">
+        <exp bool_exp="pv0&gt;=0.5">
+          <value>
+            <color name="LED-GREEN-ON" red="70" green="255" blue="70">
+            </color>
+          </value>
+        </exp>
+        <exp bool_exp="pv0&lt;0.5">
+          <value>
+            <color red="60" green="100" blue="60">
+            </color>
+          </value>
+        </exp>
+        <pv_name>LabS-VIP:Chop-Drv-01:Spd</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>Data Browser_1</name>
+    <file>DataBrowserActPhase.plt</file>
+    <x>10</x>
+    <y>350</y>
+    <width>330</width>
+    <height>220</height>
   </widget>
 </display>
