@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <databrowser>
-    <title></title>
+    <title>Chopper phase offset</title>
     <save_changes>true</save_changes>
-    <show_legend>false</show_legend>
+    <show_legend>true</show_legend>
     <show_toolbar>true</show_toolbar>
     <grid>false</grid>
     <scroll>true</scroll>
-    <update_period>3.0</update_period>
+    <update_period>2.0</update_period>
     <scroll_step>5</scroll_step>
     <start>-2 minutes 0.0 seconds</start>
     <end>now</end>
@@ -27,8 +27,25 @@
     <legend_font>Liberation Sans|14|0</legend_font>
     <axes>
         <axis>
-            <visible>true</visible>
+            <visible>false</visible>
             <name>Value 1</name>
+            <use_axis_name>false</use_axis_name>
+            <use_trace_names>true</use_trace_names>
+            <right>true</right>
+            <color>
+                <red>0</red>
+                <green>0</green>
+                <blue>0</blue>
+            </color>
+            <min>10000.0</min>
+            <max>3.719E7</max>
+            <grid>true</grid>
+            <autoscale>true</autoscale>
+            <log_scale>false</log_scale>
+        </axis>
+        <axis>
+            <visible>true</visible>
+            <name>Value 2</name>
             <use_axis_name>false</use_axis_name>
             <use_trace_names>true</use_trace_names>
             <right>false</right>
@@ -37,8 +54,8 @@
                 <green>0</green>
                 <blue>0</blue>
             </color>
-            <min>13.953190000000001</min>
-            <max>14.05461</max>
+            <min>39.04500000000001</min>
+            <max>134.855</max>
             <grid>false</grid>
             <autoscale>true</autoscale>
             <log_scale>false</log_scale>
@@ -49,8 +66,8 @@
     <pvlist>
         <pv>
             <display_name>LabS-Utgard-VIP:Chop-Drv-0201:Beam-Pos-Delay</display_name>
-            <visible>true</visible>
-            <name>LabS-VIP:Chop-Drv-01:Spd</name>
+            <visible>false</visible>
+            <name>LabS-Utgard-VIP:Chop-Drv-0201:Beam-Pos-Delay</name>
             <axis>0</axis>
             <color>
                 <red>255</red>
@@ -62,9 +79,30 @@
             <point_type>NONE</point_type>
             <point_size>2</point_size>
             <waveform_index>0</waveform_index>
-            <period>0.0</period>
+            <period>1.0</period>
             <ring_size>5000</ring_size>
             <request>OPTIMIZED</request>
         </pv>
+        <formula>
+            <display_name>degrees</display_name>
+            <visible>true</visible>
+            <name>degrees</name>
+            <axis>1</axis>
+            <color>
+                <red>0</red>
+                <green>255</green>
+                <blue>0</blue>
+            </color>
+            <trace_type>AREA</trace_type>
+            <linewidth>2</linewidth>
+            <point_type>NONE</point_type>
+            <point_size>2</point_size>
+            <waveform_index>0</waveform_index>
+            <formula>x1/71430000.0*360.0</formula>
+            <input>
+                <pv>LabS-Utgard-VIP:Chop-Drv-0201:Beam-Pos-Delay</pv>
+                <name>x1</name>
+            </input>
+        </formula>
     </pvlist>
 </databrowser>
