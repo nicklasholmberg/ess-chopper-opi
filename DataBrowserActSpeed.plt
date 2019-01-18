@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <databrowser>
-    <title></title>
+    <title>Chopper actual speed</title>
     <save_changes>true</save_changes>
     <show_legend>false</show_legend>
     <show_toolbar>true</show_toolbar>

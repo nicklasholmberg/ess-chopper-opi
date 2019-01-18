@@ -37,8 +37,8 @@
                 <green>0</green>
                 <blue>0</blue>
             </color>
-            <min>10000.0</min>
-            <max>3.719E7</max>
+            <min>-1790000.0</min>
+            <max>3.759E7</max>
             <grid>true</grid>
             <autoscale>true</autoscale>
             <log_scale>false</log_scale>
@@ -54,8 +54,59 @@
                 <green>0</green>
                 <blue>0</blue>
             </color>
-            <min>39.04500000000001</min>
-            <max>134.855</max>
+            <min>-9.05</min>
+            <max>190.05</max>
+            <grid>false</grid>
+            <autoscale>true</autoscale>
+            <log_scale>false</log_scale>
+        </axis>
+        <axis>
+            <visible>false</visible>
+            <name>Value 3</name>
+            <use_axis_name>false</use_axis_name>
+            <use_trace_names>true</use_trace_names>
+            <right>false</right>
+            <color>
+                <red>0</red>
+                <green>0</green>
+                <blue>0</blue>
+            </color>
+            <min>6.92E8</min>
+            <max>2.408E9</max>
+            <grid>false</grid>
+            <autoscale>true</autoscale>
+            <log_scale>false</log_scale>
+        </axis>
+        <axis>
+            <visible>false</visible>
+            <name>Value 4</name>
+            <use_axis_name>false</use_axis_name>
+            <use_trace_names>true</use_trace_names>
+            <right>false</right>
+            <color>
+                <red>0</red>
+                <green>0</green>
+                <blue>0</blue>
+            </color>
+            <min>4.495</min>
+            <max>15.605000000000002</max>
+            <grid>false</grid>
+            <autoscale>true</autoscale>
+            <log_scale>false</log_scale>
+        </axis>
+        <axis>
+            <visible>false</visible>
+            <name>Value 5</name>
+            <use_axis_name>false</use_axis_name>
+            <use_trace_names>true</use_trace_names>
+            <right>false</right>
+            <color>
+                <red>0</red>
+                <green>0</green>
+                <blue>0</blue>
+            </color>
+            <min>6.92E8</min>
+            <max>2.408E9</max>
             <grid>false</grid>
             <autoscale>true</autoscale>
             <log_scale>false</log_scale>
@@ -98,10 +149,73 @@
             <point_type>NONE</point_type>
             <point_size>2</point_size>
             <waveform_index>0</waveform_index>
-            <formula>x1/71430000.0*360.0</formula>
+            <formula>x1/71428571.0*360.0</formula>
             <input>
                 <pv>LabS-Utgard-VIP:Chop-Drv-0201:Beam-Pos-Delay</pv>
                 <name>x1</name>
+            </input>
+        </formula>
+        <pv>
+            <display_name>LabS-Utgard-VIP:Chop-Drv-0201:Ref_Unix</display_name>
+            <visible>false</visible>
+            <name>LabS-Utgard-VIP:Chop-Drv-0201:Ref_Unix</name>
+            <axis>2</axis>
+            <color>
+                <red>255</red>
+                <green>255</green>
+                <blue>0</blue>
+            </color>
+            <trace_type>AREA</trace_type>
+            <linewidth>2</linewidth>
+            <point_type>NONE</point_type>
+            <point_size>2</point_size>
+            <waveform_index>0</waveform_index>
+            <period>1.0</period>
+            <ring_size>5000</ring_size>
+            <request>RAW</request>
+        </pv>
+        <pv>
+            <display_name>LabS-Utgard-VIP:Chop-Drv-0201:TDC_Unix</display_name>
+            <visible>false</visible>
+            <name>LabS-Utgard-VIP:Chop-Drv-0201:TDC_Unix</name>
+            <axis>4</axis>
+            <color>
+                <red>255</red>
+                <green>0</green>
+                <blue>255</blue>
+            </color>
+            <trace_type>AREA</trace_type>
+            <linewidth>2</linewidth>
+            <point_type>NONE</point_type>
+            <point_size>2</point_size>
+            <waveform_index>0</waveform_index>
+            <period>1.0</period>
+            <ring_size>5000</ring_size>
+            <request>RAW</request>
+        </pv>
+        <formula>
+            <display_name>ActPhase</display_name>
+            <visible>false</visible>
+            <name>ActPhase</name>
+            <axis>3</axis>
+            <color>
+                <red>0</red>
+                <green>0</green>
+                <blue>255</blue>
+            </color>
+            <trace_type>AREA</trace_type>
+            <linewidth>2</linewidth>
+            <point_type>NONE</point_type>
+            <point_size>2</point_size>
+            <waveform_index>0</waveform_index>
+            <formula>(x3-x4)/71428571.0*360.0*1000</formula>
+            <input>
+                <pv>LabS-Utgard-VIP:Chop-Drv-0201:Ref_Unix</pv>
+                <name>x3</name>
+            </input>
+            <input>
+                <pv>LabS-Utgard-VIP:Chop-Drv-0201:TDC_Unix</pv>
+                <name>x4</name>
             </input>
         </formula>
     </pvlist>

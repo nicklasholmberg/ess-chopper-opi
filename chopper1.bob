@@ -33,7 +33,7 @@
     <name>Data Browser</name>
     <file>DataBrowserActSpeed.plt</file>
     <x>30</x>
-    <y>370</y>
+    <y>170</y>
     <width>330</width>
     <height>220</height>
   </widget>
@@ -41,7 +41,7 @@
     <name>LED</name>
     <pv_name>LabS-VIP:Chop-Drv-01:Alrm_Stat</pv_name>
     <x>660</x>
-    <y>50</y>
+    <y>40</y>
     <off_color>
       <color red="153" green="0" blue="0">
       </color>
@@ -55,7 +55,7 @@
     <name>Label_3</name>
     <text>Alarm active</text>
     <x>630</x>
-    <y>20</y>
+    <y>10</y>
   </widget>
   <widget type="action_button" version="3.0.0">
     <name>Action Button</name>
@@ -67,7 +67,7 @@
       </action>
     </actions>
     <x>540</x>
-    <y>40</y>
+    <y>30</y>
     <tooltip>$(actions)</tooltip>
   </widget>
   <widget type="textentry" version="3.0.0">
@@ -119,8 +119,8 @@
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_1</name>
-    <x>490</x>
-    <y>40</y>
+    <x>470</x>
+    <y>30</y>
     <rules>
       <rule name="Evaluate_Speed" prop_id="off_color" out_exp="false">
         <exp bool_exp="pv0&gt;=0.5">
@@ -142,8 +142,8 @@
   <widget type="databrowser" version="2.0.0">
     <name>Data Browser_1</name>
     <file>DataBrowserActPhase.plt</file>
-    <x>450</x>
-    <y>370</y>
+    <x>430</x>
+    <y>170</y>
     <width>330</width>
     <height>220</height>
   </widget>
@@ -161,60 +161,28 @@
     <width>1</width>
     <height>1</height>
   </widget>
-  <widget type="action_button" version="3.0.0">
-    <name>Action Button_3</name>
-    <actions>
-      <action type="execute">
-        <script file="EmbeddedPy">
-          <text><![CDATA[# Embedded python script
-from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-print 'Hello'
-widget.setPropertyValue('text', PVUtil.getString(pvs[0]))]]></text>
-        </script>
-        <description>Execute Script</description>
-      </action>
-    </actions>
-    <pv_name>loc://test</pv_name>
-    <x>70</x>
-    <y>160</y>
-    <scripts>
-      <script file="EmbeddedPy">
-        <text><![CDATA[# Embedded python script
-from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
-print 'Hello'
-# widget.setPropertyValue('text', PVUtil.getString(pvs[0]))
-# pvs[1].setValue(PVUtil.getDouble(pvs[0])  / 360 * 71430000)
-pvs[2].setValue(pvs[1])]]></text>
-        <pv_name trigger="false">loc://test</pv_name>
-        <pv_name trigger="false">loc://phase_deg</pv_name>
-        <pv_name trigger="false">loc://time</pv_name>
-        <pv_name trigger="false">LabS-Utgard-VIP:Chop-Drv-0201:Beam-Pos-Delay</pv_name>
-      </script>
-    </scripts>
-    <tooltip>$(actions)</tooltip>
-  </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_2</name>
-    <pv_name>loc://time_ns</pv_name>
+    <pv_name>LabS-Utgard-VIP:Chop-Drv-0201:Beam-Pos-Delay</pv_name>
     <x>180</x>
-    <y>160</y>
+    <y>130</y>
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Entry_1</name>
-    <pv_name>loc://phase_deg</pv_name>
+    <pv_name>loc://phase_deg(0)</pv_name>
     <x>180</x>
     <y>110</y>
     <precision>1</precision>
     <scripts>
-      <script file="EmbeddedJs" check_connections="false">
+      <script file="EmbeddedJs">
         <text><![CDATA[/* Embedded javascript */
 PVUtil = org.csstudio.display.builder.runtime.script.PVUtil;
 logger = org.csstudio.display.builder.runtime.script.ScriptUtil.getLogger();
 logger.info("Hello");
 /* widget.setPropertyValue("text", PVUtil.getString(pvs[0])); */
-pvs[1].write(PVUtil.getDouble(pvs[0])/360.0*71430000);]]></text>
+pvs[1].write(PVUtil.getDouble(pvs[0])/360.0*71428571.43);]]></text>
         <pv_name>loc://phase_deg</pv_name>
-        <pv_name trigger="false">loc://time_ns</pv_name>
+        <pv_name trigger="false">LabS-Utgard-VIP:Chop-Drv-0201:Beam-Pos-Delay</pv_name>
       </script>
       <script file="EmbeddedPy">
         <text><![CDATA[# Embedded python script
@@ -227,16 +195,52 @@ pvs[1].write(PVUtil.getDouble(pvs[0]))]]></text>
       </script>
     </scripts>
   </widget>
-  <widget type="textupdate" version="2.0.0">
-    <name>Text Update_3</name>
-    <pv_name>loc://phase_deg</pv_name>
-    <x>290</x>
+  <widget type="led" version="2.0.0">
+    <name>LED_2</name>
+    <x>300</x>
     <y>110</y>
-  </widget>
-  <widget type="textupdate" version="2.0.0">
-    <name>Text Update_4</name>
-    <pv_name>loc://test</pv_name>
-    <x>290</x>
-    <y>140</y>
+    <width>50</width>
+    <height>50</height>
+    <rules>
+      <rule name="ColorSelection" prop_id="off_color" out_exp="false">
+        <exp bool_exp="pv0 &gt; 330 &amp;&amp; pv0 &lt; 10">
+          <value>
+            <color red="153" green="128" blue="230">
+            </color>
+          </value>
+        </exp>
+        <exp bool_exp="pv0 &gt;= 10 &amp;&amp; pv0 &lt; 50">
+          <value>
+            <color red="204" green="51" blue="51">
+            </color>
+          </value>
+        </exp>
+        <exp bool_exp="pv0 &gt;= 50 &amp;&amp; pv0 &lt; 90">
+          <value>
+            <color red="255" green="255" blue="77">
+            </color>
+          </value>
+        </exp>
+        <exp bool_exp="pv0 &gt;= 90 &amp;&amp; pv0 &lt; 180">
+          <value>
+            <color red="106" green="235" blue="0">
+            </color>
+          </value>
+        </exp>
+        <exp bool_exp="pv0 &gt;= 180 &amp;&amp; pv0 &lt; 290">
+          <value>
+            <color red="128" green="102" blue="204">
+            </color>
+          </value>
+        </exp>
+        <exp bool_exp="pv0 &gt;= 290 &amp;&amp; pv0 &lt; 330">
+          <value>
+            <color red="0" green="64" blue="255">
+            </color>
+          </value>
+        </exp>
+        <pv_name>loc://phase_deg</pv_name>
+      </rule>
+    </rules>
   </widget>
 </display>
