@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Display</name>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>Chopper 2</text>
+    <x use_class="true">20</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height use_class="true">50</height>
+    <font use_class="true">
+      <font name="Header 1" family="Source Sans Pro" style="BOLD_ITALIC" size="36.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="HEADER-TEXT" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <horizontal_alignment use_class="true">0</horizontal_alignment>
+    <vertical_alignment use_class="true">1</vertical_alignment>
+    <wrap_words use_class="true">false</wrap_words>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>LabS-VIP:Chop-Drv-01:Spd</pv_name>
+    <x>180</x>
+    <y>50</y>
+    <precision>1</precision>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>Data Browser</name>
+    <file>DataBrowserActSpeed.plt</file>
+    <x>30</x>
+    <y>170</y>
+    <width>330</width>
+    <height>220</height>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED</name>
+    <pv_name>LabS-VIP:Chop-Drv-01:Alrm_Stat</pv_name>
+    <x>660</x>
+    <y>40</y>
+    <off_color>
+      <color red="153" green="0" blue="0">
+      </color>
+    </off_color>
+    <on_color>
+      <color name="ERROR" red="252" green="13" blue="27">
+      </color>
+    </on_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>Alarm active</text>
+    <x>630</x>
+    <y>10</y>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>LabS-VIP:Chop-Drv-01:ClrAlrm_Cmd</pv_name>
+        <value>1</value>
+        <description>Reset alarm</description>
+      </action>
+    </actions>
+    <x>540</x>
+    <y>30</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry</name>
+    <pv_name>LabS-VIP:Chop-Drv-01:Spd_SP</pv_name>
+    <x>180</x>
+    <y>80</y>
+    <precision>2</precision>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>Actual speed</text>
+    <x>40</x>
+    <y>50</y>
+    <width>120</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Speed setpoint</text>
+    <x>40</x>
+    <y>80</y>
+    <width>120</width>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>LabS-VIP:Chop-Drv-01:Start_Cmd</pv_name>
+        <value>1</value>
+        <description>Start</description>
+      </action>
+    </actions>
+    <x>350</x>
+    <y>10</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>LabS-VIP:Chop-Drv-01:Stop_Cmd</pv_name>
+        <value>1</value>
+        <description>Stop</description>
+      </action>
+    </actions>
+    <x>350</x>
+    <y>40</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_1</name>
+    <x>470</x>
+    <y>30</y>
+    <rules>
+      <rule name="Evaluate_Speed" prop_id="off_color" out_exp="false">
+        <exp bool_exp="pv0&gt;=0.5">
+          <value>
+            <color name="LED-GREEN-ON" red="70" green="255" blue="70">
+            </color>
+          </value>
+        </exp>
+        <exp bool_exp="pv0&lt;0.5">
+          <value>
+            <color name="OFF" red="169" green="169" blue="169">
+            </color>
+          </value>
+        </exp>
+        <pv_name>LabS-VIP:Chop-Drv-01:Spd</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>Data Browser_1</name>
+    <file>DataBrowserActPhase.plt</file>
+    <x>430</x>
+    <y>170</y>
+    <width>330</width>
+    <height>220</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Phase setpoint</text>
+    <x>40</x>
+    <y>110</y>
+    <width>120</width>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button</name>
+    <x>410</x>
+    <y>250</y>
+    <width>1</width>
+    <height>1</height>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_2</name>
+    <pv_name>LabS-Utgard-VIP:Chop-Drv-0201:Beam-Pos-Delay</pv_name>
+    <x>180</x>
+    <y>130</y>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Entry_1</name>
+    <pv_name>loc://phase_deg(0)</pv_name>
+    <x>180</x>
+    <y>110</y>
+    <precision>1</precision>
+    <scripts>
+      <script file="EmbeddedJs">
+        <text><![CDATA[/* Embedded javascript */
+PVUtil = org.csstudio.display.builder.runtime.script.PVUtil;
+logger = org.csstudio.display.builder.runtime.script.ScriptUtil.getLogger();
+logger.info("Hello");
+/* widget.setPropertyValue("text", PVUtil.getString(pvs[0])); */
+pvs[1].write(PVUtil.getDouble(pvs[0])/360.0*71428571.43);]]></text>
+        <pv_name>loc://phase_deg</pv_name>
+        <pv_name trigger="false">LabS-Utgard-VIP:Chop-Drv-0201:Beam-Pos-Delay</pv_name>
+      </script>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+#print 'Hello'
+# widget.setPropertyValue('text', PVUtil.getString(pvs[0]))
+pvs[1].write(PVUtil.getDouble(pvs[0]))]]></text>
+        <pv_name trigger="false">loc://phase_deg</pv_name>
+        <pv_name trigger="false">loc://time_ns</pv_name>
+      </script>
+    </scripts>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED_2</name>
+    <x>300</x>
+    <y>110</y>
+    <width>50</width>
+    <height>50</height>
+    <rules>
+      <rule name="ColorSelection" prop_id="off_color" out_exp="false">
+        <exp bool_exp="pv0 &gt; 330 &amp;&amp; pv0 &lt; 10">
+          <value>
+            <color red="153" green="128" blue="230">
+            </color>
+          </value>
+        </exp>
+        <exp bool_exp="pv0 &gt;= 10 &amp;&amp; pv0 &lt; 50">
+          <value>
+            <color red="204" green="51" blue="51">
+            </color>
+          </value>
+        </exp>
+        <exp bool_exp="pv0 &gt;= 50 &amp;&amp; pv0 &lt; 90">
+          <value>
+            <color red="255" green="255" blue="77">
+            </color>
+          </value>
+        </exp>
+        <exp bool_exp="pv0 &gt;= 90 &amp;&amp; pv0 &lt; 180">
+          <value>
+            <color red="106" green="235" blue="0">
+            </color>
+          </value>
+        </exp>
+        <exp bool_exp="pv0 &gt;= 180 &amp;&amp; pv0 &lt; 290">
+          <value>
+            <color red="128" green="102" blue="204">
+            </color>
+          </value>
+        </exp>
+        <exp bool_exp="pv0 &gt;= 290 &amp;&amp; pv0 &lt; 330">
+          <value>
+            <color red="0" green="64" blue="255">
+            </color>
+          </value>
+        </exp>
+        <pv_name>loc://phase_deg</pv_name>
+      </rule>
+    </rules>
+  </widget>
+</display>
