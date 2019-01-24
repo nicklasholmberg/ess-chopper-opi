@@ -25,8 +25,8 @@
   <widget type="textupdate" version="2.0.0">
     <name>Text Update</name>
     <pv_name>LabS-VIP:Chop-Drv-01:Spd</pv_name>
-    <x>180</x>
-    <y>50</y>
+    <x>543</x>
+    <y>90</y>
     <precision>1</precision>
   </widget>
   <widget type="databrowser" version="2.0.0">
@@ -40,7 +40,7 @@
   <widget type="led" version="2.0.0">
     <name>LED</name>
     <pv_name>LabS-VIP:Chop-Drv-01:Alrm_Stat</pv_name>
-    <x>660</x>
+    <x>713</x>
     <y>40</y>
     <off_color>
       <color red="153" green="0" blue="0">
@@ -54,7 +54,7 @@
   <widget type="label" version="2.0.0">
     <name>Label_3</name>
     <text>Alarm active</text>
-    <x>630</x>
+    <x>683</x>
     <y>10</y>
   </widget>
   <widget type="action_button" version="3.0.0">
@@ -66,29 +66,29 @@
         <description>Reset alarm</description>
       </action>
     </actions>
-    <x>540</x>
+    <x>593</x>
     <y>30</y>
     <tooltip>$(actions)</tooltip>
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Entry</name>
     <pv_name>LabS-VIP:Chop-Drv-01:Spd_SP</pv_name>
-    <x>180</x>
-    <y>80</y>
+    <x>543</x>
+    <y>120</y>
     <precision>2</precision>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label_4</name>
     <text>Actual speed</text>
-    <x>40</x>
-    <y>50</y>
+    <x>403</x>
+    <y>90</y>
     <width>120</width>
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label_1</name>
     <text>Speed setpoint</text>
-    <x>40</x>
-    <y>80</y>
+    <x>403</x>
+    <y>120</y>
     <width>120</width>
   </widget>
   <widget type="action_button" version="3.0.0">
@@ -100,7 +100,7 @@
         <description>Start</description>
       </action>
     </actions>
-    <x>350</x>
+    <x>403</x>
     <y>10</y>
     <tooltip>$(actions)</tooltip>
   </widget>
@@ -113,13 +113,13 @@
         <description>Stop</description>
       </action>
     </actions>
-    <x>350</x>
+    <x>403</x>
     <y>40</y>
     <tooltip>$(actions)</tooltip>
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_1</name>
-    <x>470</x>
+    <x>523</x>
     <y>30</y>
     <rules>
       <rule name="Evaluate_Speed" prop_id="off_color" out_exp="false">
@@ -150,8 +150,8 @@
   <widget type="label" version="2.0.0">
     <name>Label_2</name>
     <text>Phase setpoint</text>
-    <x>40</x>
-    <y>110</y>
+    <x>30</x>
+    <y>90</y>
     <width>120</width>
   </widget>
   <widget type="bool_button" version="2.0.0">
@@ -163,15 +163,15 @@
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update_2</name>
-    <pv_name>LabS-Utgard-VIP:Chop-Drv-0201:Beam-Pos-Delay</pv_name>
-    <x>180</x>
-    <y>130</y>
+    <pv_name>LabS-Utgard-VIP:Chop-Drv-0201:Chopper-Delay-SP</pv_name>
+    <x>170</x>
+    <y>110</y>
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Entry_1</name>
     <pv_name>loc://phase_deg(0)</pv_name>
-    <x>180</x>
-    <y>110</y>
+    <x>170</x>
+    <y>90</y>
     <precision>1</precision>
     <scripts>
       <script file="EmbeddedJs">
@@ -182,7 +182,7 @@ logger.info("Hello");
 /* widget.setPropertyValue("text", PVUtil.getString(pvs[0])); */
 pvs[1].write(PVUtil.getDouble(pvs[0])/360.0*71428571.43);]]></text>
         <pv_name>loc://phase_deg</pv_name>
-        <pv_name trigger="false">LabS-Utgard-VIP:Chop-Drv-0201:Beam-Pos-Delay</pv_name>
+        <pv_name trigger="false">LabS-Utgard-VIP:Chop-Drv-0201:Chopper-Delay-SP</pv_name>
       </script>
       <script file="EmbeddedPy">
         <text><![CDATA[# Embedded python script
@@ -197,45 +197,63 @@ pvs[1].write(PVUtil.getDouble(pvs[0]))]]></text>
   </widget>
   <widget type="led" version="2.0.0">
     <name>LED_2</name>
-    <x>300</x>
-    <y>110</y>
-    <width>50</width>
-    <height>50</height>
+    <x>290</x>
+    <y>69</y>
+    <width>80</width>
+    <height>80</height>
     <rules>
       <rule name="ColorSelection" prop_id="off_color" out_exp="false">
-        <exp bool_exp="pv0 &gt; 330 &amp;&amp; pv0 &lt; 10">
+        <exp bool_exp="pv0 &gt; 0 &amp;&amp; pv0 &lt; 40">
           <value>
-            <color red="153" green="128" blue="230">
+            <color red="255" green="0" blue="0">
             </color>
           </value>
         </exp>
-        <exp bool_exp="pv0 &gt;= 10 &amp;&amp; pv0 &lt; 50">
+        <exp bool_exp="pv0 &gt;= 40 &amp;&amp; pv0 &lt; 80">
           <value>
-            <color red="204" green="51" blue="51">
+            <color red="219" green="110" blue="0">
             </color>
           </value>
         </exp>
-        <exp bool_exp="pv0 &gt;= 50 &amp;&amp; pv0 &lt; 90">
+        <exp bool_exp="pv0 &gt;= 80 &amp;&amp; pv0 &lt; 120">
           <value>
-            <color red="255" green="255" blue="77">
+            <color red="134" green="175" blue="77">
             </color>
           </value>
         </exp>
-        <exp bool_exp="pv0 &gt;= 90 &amp;&amp; pv0 &lt; 180">
+        <exp bool_exp="pv0 &gt;= 120 &amp;&amp; pv0 &lt; 160">
           <value>
-            <color red="106" green="235" blue="0">
+            <color red="15" green="255" blue="0">
             </color>
           </value>
         </exp>
-        <exp bool_exp="pv0 &gt;= 180 &amp;&amp; pv0 &lt; 290">
+        <exp bool_exp="pv0 &gt;= 160 &amp;&amp; pv0 &lt; 200">
           <value>
-            <color red="128" green="102" blue="204">
+            <color red="0" green="243" blue="36">
             </color>
           </value>
         </exp>
-        <exp bool_exp="pv0 &gt;= 290 &amp;&amp; pv0 &lt; 330">
+        <exp bool_exp="pv0 &gt;= 200 &amp;&amp; pv0 &lt; 240">
           <value>
-            <color red="0" green="64" blue="255">
+            <color red="0" green="169" blue="255">
+            </color>
+          </value>
+        </exp>
+        <exp bool_exp="pv0 &gt;= 240 &amp;&amp; pv0 &lt; 280">
+          <value>
+            <color red="14" green="0" blue="255">
+            </color>
+          </value>
+        </exp>
+        <exp bool_exp="pv0 &gt;= 280 &amp;&amp; pv0 &lt; 320">
+          <value>
+            <color red="162" green="0" blue="154">
+            </color>
+          </value>
+        </exp>
+        <exp bool_exp="pv0 &gt;= 320 &amp;&amp; pv0 &lt; 360">
+          <value>
+            <color red="207" green="0" blue="62">
             </color>
           </value>
         </exp>
